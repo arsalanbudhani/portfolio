@@ -1,38 +1,230 @@
-.App {
-  text-align: center;
+body{
+    background-color: #DBEDF3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navigation{
+    text-decoration: none;
+    color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navigation:hover{
+    color: #1C8BD1;
+}
+
+ul{
+    list-style-type: none;
+}
+
+input[type="text"]:focus{
+    box-shadow: 0px 0px 4px #1C8BD1
+}
+
+input[type="email"]:focus{
+    box-shadow: 0px 0px 4px #1C8BD1
+}
+
+textarea[class="form-control mb-2"]:focus{
+    box-shadow: 0px 0px 4px #1C8BD1
+}
+
+#btnSend:hover {
+    box-shadow: 0px 0px 4px #1C8BD1
+}
+
+#btnSend:focus {
+    box-shadow: 0px 0px 4px #1C8BD1
+}
+
+#about{
+    box-sizing: unset;
+}
+
+.bi-star-fill{
+    color: #faaf00;
+    margin: 0px 1px;
+}
+
+.bi-star-half{
+    color: #faaf00;
+    margin: 0px 1px;
+}
+
+.bi-star{
+    color: #6c757d;
+    margin: 0px 1px;
+}
+
+@media(max-width:991px){
+    .sidebar {
+      display: none;
+    }
+    .desktop-text{
+        display: none;
+    }
+    .desktop-buttons{
+        display: none;
+    }
+    .home-image{
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    .home-image img{
+        opacity: 0.6;
+    }
+    .mobile-text {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -40%);
+      }
+    .mobile-buttons{
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translate(-50%, 8%)
+      }
+    .row>*{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #about {
+        margin: 0 !important;
+        background-color: #222222 !important;
+    }
+    #about div{
+        justify-content: center;
+    }
+    #about h2{
+        text-align: center;
+        color: #fff !important;
+    }
+    #about div img{
+        height: 12rem;
+        width: 12rem;
+        margin-bottom: 10px;
+    }
+    #about div p{
+        text-align: center;
+        padding: 0px 20px;
+        color: #fff;
+    }
+    #skills{
+        background-color: #DBEDF3 !important;
+    }
+    #skills h2{
+        text-align: center;
+    }
+    #skills div{
+       justify-content: center;
+    }
+    #skills div span{
+        margin: 10px 20px;
+        width: max-content;
+    }
+    #experience{
+        background-color: #222222 !important;
+    }
+    #experience h2{
+        text-align: center;
+        color: #fff !important;
+    }
+    #experience div{
+        margin: 10px 10px;
+    }
+    #experience div div{
+        border-left-color: #8F9194 !important;
+        border-bottom-color: #8F9194 !important;
+    }
+
+    #experience div>*{
+        margin: 10px 10px;
+    }
+    #experience div div h6{
+        color: #fff;
+    }
+    #experience div div p{
+        color: #8F9194;
+    }
+    #experience div div span{
+        color: #8F9194;
+    }
+    #education{
+        background-color: #DBEDF3 !important;
+    }
+    #education h2{
+        text-align: center;
+        color: #1C8BD1 !important;
+    }
+    #education div{
+        margin: 10px 10px;
+    }
+    #education div div{
+        border-left-color: #8F9194 !important;
+        border-bottom-color: #8F9194 !important;
+    }
+
+    #education div>*{
+        margin: 10px 10px;
+    }
+    #education div div h6{
+        color: #222222;
+    }
+    #education div div p{
+        color: #8F9194;
+    }
+    #showcase{
+        background-color: #222222 !important;
+    }
+    #showcase h2{
+        color: #fff !important;
+        text-align: center;
+    }
+    #showcase div img{
+        padding: 10px;
+    }
+    #contact{
+        background-color: #DBEDF3 !important;
+    }
+    #contact h2{
+        text-align: center;
+    }
+    #contact div div:first-child{
+        margin: 10px 30px;
+    }
+    #contact div form{
+        padding: 30px;
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @media(min-width:992px){
+    .icon-bar{
+        display: none;
+    }
+    .mobile-text{
+        display: none;
+    }
+    .mobile-buttons{
+        display:none;
+    }
+    #showcase div img{
+        padding: 10px;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  .icon-bar {
+    position: fixed;
+    top: 45%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1;
   }
-}
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    transition: all 0.3s ease;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    border-bottom: 1px solid #e1e1e1;
+  }
