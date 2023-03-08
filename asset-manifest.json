@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.17654ad6.css",
+    "main.js": "/portfolio/static/js/main.b1d5e381.js",
+    "static/media/arsalan.jpg": "/portfolio/static/media/arsalan.3844641da4855e3d5654.jpg",
+    "static/media/Muhammad_Arsalan_Resume.pdf": "/portfolio/static/media/Muhammad_Arsalan_Resume.c4529961f01d25c78a08.pdf",
+    "index.html": "/portfolio/index.html",
+    "main.17654ad6.css.map": "/portfolio/static/css/main.17654ad6.css.map",
+    "main.b1d5e381.js.map": "/portfolio/static/js/main.b1d5e381.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17654ad6.css",
+    "static/js/main.b1d5e381.js"
+  ]
+}
