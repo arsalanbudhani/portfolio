@@ -1,5 +1,6 @@
 import React from 'react'
 import img from "./arsalan.jpg"
+import img2 from "./imagePlaceholder.jpg"
 import pdf from "./Muhammad_Arsalan_Resume.pdf"
 
 export const Home = () => {
@@ -19,7 +20,7 @@ export const Home = () => {
                     <a href="#" style={{backgroundColor:'#1C8BD1', color: '#fff'}} class="ms-2 p-1"><i class="bi bi-discord"></i></a>
                     <a href="#" style={{backgroundColor:'#1C8BD1', color: '#fff'}} class="ms-2 p-1"><i class="bi bi-github"></i></a>
                 </span> */}
-                    <img class="col-12 w-100" src={img} alt="" loading='lazy'></img>
+                    <img class="col-12 w-100" src={img2} alt="" loading='lazy'></img>
                     {/* <div class="hamburger-menu" style={{position: 'absolute', top: '16px', left: '16px'}}>
                       <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         <i style={{color: '#222222', fontSize: '28px'}} class="bi bi-list"></i>
