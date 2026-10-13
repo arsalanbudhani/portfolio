@@ -1,0 +1,155 @@
+:root {
+  --accent: #1C8BD1;
+  --dark: #222222;
+  --bg: #DBEDF3;
+  --muted: #6c757d;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+/* Sections */
+.section {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* Sidebar (desktop) */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--dark);
+}
+
+.sidebar img {
+  width: 100%;
+}
+
+.sidebar-nav a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-nav a:hover {
+  color: var(--accent);
+}
+
+/* Icon bar (mobile) */
+.icon-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  display: flex;
+  background-color: var(--dark);
+}
+
+.icon-bar a {
+  flex: 1;
+  padding: 0.75rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.icon-bar a:hover {
+  color: var(--accent);
+}
+
+/* Home */
+.hero-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* About */
+.about-img {
+  width: 100%;
+  max-width: 14rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Experience / Education */
+.timeline-card {
+  height: 100%;
+  padding: 0 1rem 1rem;
+  border-left: 1px solid var(--dark);
+  border-bottom: 1px solid var(--dark);
+}
+
+/* Skills */
+.bi-star-fill,
+.bi-star-half {
+  color: #faaf00;
+}
+
+.bi-star {
+  color: var(--muted);
+}
+
+/* Buttons & form */
+.btn-accent {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background-color: #1774ae;
+  color: #fff;
+}
+
+.form-control:focus,
+.btn:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 4px var(--accent);
+}
+
+.social-link {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.social-link:hover {
+  background-color: var(--dark);
+  color: #fff;
+}
+
+@media (max-width: 991.98px) {
+  /* Keep content clear of the fixed icon bar */
+  body {
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-img {
+    aspect-ratio: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: 3rem;
+    margin-bottom: 3rem;
+  }
+}
