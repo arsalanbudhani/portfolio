@@ -10,7 +10,6 @@ export const Sidebar = () => {
         <a href="#skills">Skills <i className="bi bi-lightning"></i></a>
         <a href="#experience">Experience <i className="bi bi-stars"></i></a>
         <a href="#education">Education <i className="bi bi-mortarboard"></i></a>
-        <a href="#showcase">Showcase <i className="bi bi-display"></i></a>
         <a href="#contact">Contact <i className="bi bi-envelope"></i></a>
       </nav>
     </div>

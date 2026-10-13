@@ -5,7 +5,6 @@ import { About } from "./sections/About";
 import { Skills } from "./sections/Skills";
 import { Experience } from "./sections/Experience";
 import { Education } from "./sections/Education";
-import { Showcase } from "./sections/Showcase";
 import { Contact } from "./sections/Contact";
 import "./styles/App.css";
 
@@ -22,7 +21,6 @@ function App() {
           <Skills />
           <Experience />
           <Education />
-          <Showcase />
           <Contact />
         </main>
       </div>

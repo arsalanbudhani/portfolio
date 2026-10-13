@@ -6,7 +6,6 @@ export const IconBar = () => {
       <a href="#skills" aria-label="Skills"><i className="bi bi-lightning"></i></a>
       <a href="#experience" aria-label="Experience"><i className="bi bi-stars"></i></a>
       <a href="#education" aria-label="Education"><i className="bi bi-mortarboard"></i></a>
-      <a href="#showcase" aria-label="Showcase"><i className="bi bi-display"></i></a>
       <a href="#contact" aria-label="Contact"><i className="bi bi-envelope"></i></a>
     </nav>
   );
