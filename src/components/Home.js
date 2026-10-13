@@ -1,4 +1,4 @@
-import placeholder from "./imgPlaceholder.jpg";
+import placeholder from "./imgPlaceholder.png";
 import pdf from "./Muhammad_Arsalan_Resume.pdf";
 
 export const Home = () => {
