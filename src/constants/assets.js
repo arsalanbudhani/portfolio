@@ -1,4 +1,4 @@
-const ASSETS_URL = `${process.env.PUBLIC_URL}/assets`;
+const ASSETS_URL = `${import.meta.env.BASE_URL}assets`;
 
 export const images = {
   profile: `${ASSETS_URL}/images/profile.jpg`,
