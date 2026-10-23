@@ -1,5 +1,7 @@
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { ChatWidget } from "./components/ChatWidget";
+import { isChatEnabled } from "./lib/gemini";
 import { Home } from "./sections/Home";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
@@ -21,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      {isChatEnabled && <ChatWidget />}
     </>
   );
 }

@@ -1,41 +1,5 @@
 import { Section } from "../components/Section";
-
-const jobs = [
-  {
-    period: "Nov 2022 – Present",
-    company: "Oxiliry",
-    role: "Software Engineer",
-    highlights: [
-      "Plan and design software architecture and user interfaces.",
-      "Convert UI/UX designs into functional, responsive frontend code aligned with project requirements.",
-      "Improve performance and optimize existing software systems.",
-      "Identify and resolve bugs to keep applications running smoothly.",
-      "Collaborate with cross-functional teams to deliver integrated solutions.",
-      "Run thorough testing and manage deployments for reliable production releases.",
-    ],
-  },
-  {
-    period: "Jun 2022 – Oct 2022",
-    company: "Oxiliry",
-    role: "App Development Intern",
-    highlights: [
-      "Gained hands-on experience under mentorship and project guidance.",
-      "Explored and worked with new technologies and frameworks.",
-      "Maintained clear communication with team members and supervisors.",
-    ],
-  },
-  {
-    period: "Mar 2021 – Sep 2021",
-    company: "Geekistan",
-    role: "Web Development Intern",
-    highlights: [
-      "Supported the web development team with tasks and feature implementations.",
-      "Developed assigned features and functionality within web applications.",
-      "Contributed to team meetings and collaborative sessions.",
-      "Documented code, processes and project information.",
-    ],
-  },
-];
+import { jobs } from "../constants/content";
 
 export const Experience = () => {
   return (

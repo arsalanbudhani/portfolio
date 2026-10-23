@@ -1,27 +1,5 @@
 import { Section } from "../components/Section";
-
-const skillGroups = [
-  {
-    icon: "bi-window",
-    title: "Frontend",
-    skills: ["React.js", "JavaScript", "TypeScript", "HTML", "CSS", "jQuery"],
-  },
-  {
-    icon: "bi-hdd-stack",
-    title: "Backend",
-    skills: ["C#", "ASP.NET", "ASP.NET WebForms", "ASP.NET Core MVC", "ADO.NET"],
-  },
-  {
-    icon: "bi-database",
-    title: "Database",
-    skills: ["SQL", "MySQL"],
-  },
-  {
-    icon: "bi-people",
-    title: "Soft skills",
-    skills: ["Leadership", "Problem-solving", "Teamwork", "Stakeholder management", "Project management"],
-  },
-];
+import { skillGroups } from "../constants/content";
 
 export const Skills = () => {
   return (

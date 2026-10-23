@@ -1,17 +1,5 @@
 import { Section } from "../components/Section";
-
-const schools = [
-  {
-    period: "Class of 2022",
-    degree: "B.E. Computer Systems Engineering",
-    institute: "Mehran University of Engineering and Technology, Jamshoro",
-    project: {
-      title: "IoT-based Health Monitoring System",
-      description:
-        "A real-time patient monitoring system using IoT sensors and cloud technologies to enable continuous health tracking and timely alerts.",
-    },
-  },
-];
+import { schools } from "../constants/content";
 
 export const Education = () => {
   return (
