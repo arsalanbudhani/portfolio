@@ -1,155 +1,65 @@
-:root {
-  --accent: #1C8BD1;
-  --dark: #222222;
-  --bg: #DBEDF3;
-  --muted: #6c757d;
+@import "tailwindcss";
+
+/* Dark mode follows the `dark` class on <html> (set in index.html / ThemeToggle). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: var(--color-sky-700);
+  --color-accent-strong: var(--color-sky-800);
+  --color-accent-light: var(--color-sky-400);
 }
 
-body {
-  background-color: var(--bg);
-}
+@layer base {
+  html {
+    @apply bg-white text-zinc-700 antialiased dark:bg-zinc-950 dark:text-zinc-300;
+  }
 
-.text-accent {
-  color: var(--accent);
-}
+  html.dark {
+    color-scheme: dark;
+  }
 
-/* Sections */
-.section {
-  background-color: #fff;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
+  h1, h2, h3, h4 {
+    @apply text-zinc-900 dark:text-zinc-50;
+  }
 
-.section-title {
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
-
-/* Sidebar (desktop) */
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: var(--dark);
-}
-
-.sidebar img {
-  width: 100%;
-}
-
-.sidebar-nav a {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.sidebar-nav a:hover {
-  color: var(--accent);
-}
-
-/* Icon bar (mobile) */
-.icon-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1030;
-  display: flex;
-  background-color: var(--dark);
-}
-
-.icon-bar a {
-  flex: 1;
-  padding: 0.75rem 0;
-  text-align: center;
-  color: #fff;
-}
-
-.icon-bar a:hover {
-  color: var(--accent);
-}
-
-/* Home */
-.hero-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-/* About */
-.about-img {
-  width: 100%;
-  max-width: 14rem;
-  aspect-ratio: 1;
-  object-fit: cover;
-}
-
-/* Experience / Education */
-.timeline-card {
-  height: 100%;
-  padding: 0 1rem 1rem;
-  border-left: 1px solid var(--dark);
-  border-bottom: 1px solid var(--dark);
-}
-
-/* Skills */
-.bi-star-fill,
-.bi-star-half {
-  color: #faaf00;
-}
-
-.bi-star {
-  color: var(--muted);
-}
-
-/* Buttons & form */
-.btn-accent {
-  background-color: var(--accent);
-  color: #fff;
-}
-
-.btn-accent:hover {
-  background-color: #1774ae;
-  color: #fff;
-}
-
-.form-control:focus,
-.btn:focus-visible {
-  border-color: var(--accent);
-  box-shadow: 0 0 4px var(--accent);
-}
-
-.social-link {
-  padding: 0.25rem 0.5rem;
-  background-color: var(--accent);
-  color: #fff;
-}
-
-.social-link:hover {
-  background-color: var(--dark);
-  color: #fff;
-}
-
-@media (max-width: 991.98px) {
-  /* Keep content clear of the fixed icon bar */
-  body {
-    padding-bottom: 3.5rem;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
-@media (min-width: 768px) {
-  .hero-img {
-    aspect-ratio: 1;
-  }
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-60;
 }
 
-@media (min-width: 992px) {
-  .section {
-    padding: 3rem;
-    margin-bottom: 3rem;
+@layer components {
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-strong dark:bg-accent-light dark:text-zinc-950 dark:hover:bg-sky-300;
+  }
+
+  .btn-secondary {
+    @apply btn border border-zinc-300 text-zinc-900 hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-zinc-500 dark:hover:bg-zinc-900;
+  }
+
+  .card {
+    @apply rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/50;
+  }
+
+  .chip {
+    @apply rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200;
+  }
+
+  .icon-link {
+    @apply inline-flex size-10 items-center justify-center rounded-full border border-zinc-200 text-lg text-zinc-600 transition-colors hover:border-accent hover:text-accent dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-accent-light dark:hover:text-accent-light;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 placeholder:text-zinc-400 focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-accent-light dark:focus:ring-accent-light/20;
+  }
+
+  .text-link {
+    @apply text-accent hover:underline dark:text-accent-light;
   }
 }

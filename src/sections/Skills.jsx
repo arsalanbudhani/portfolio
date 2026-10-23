@@ -1,36 +1,45 @@
 import { Section } from "../components/Section";
 
-const skills = [
-  { name: "HTML / CSS", rating: 4 },
-  { name: "JavaScript", rating: 3 },
-  { name: "React JS", rating: 3 },
-  { name: "Figma", rating: 4 },
-  { name: "Adobe XD", rating: 4 },
-  { name: "Mockflow", rating: 4 },
-  { name: "Bootstrap", rating: 4 },
-  { name: "ASP.NET / C#", rating: 2.5 },
-  { name: "SQL", rating: 2.5 },
-  { name: "PHP", rating: 2 },
+const skillGroups = [
+  {
+    icon: "bi-window",
+    title: "Frontend",
+    skills: ["React.js", "JavaScript", "TypeScript", "HTML", "CSS", "jQuery"],
+  },
+  {
+    icon: "bi-hdd-stack",
+    title: "Backend",
+    skills: ["C#", "ASP.NET", "ASP.NET WebForms", "ASP.NET Core MVC", "ADO.NET"],
+  },
+  {
+    icon: "bi-database",
+    title: "Database",
+    skills: ["SQL", "MySQL"],
+  },
+  {
+    icon: "bi-people",
+    title: "Soft skills",
+    skills: ["Leadership", "Problem-solving", "Teamwork", "Stakeholder management", "Project management"],
+  },
 ];
-
-const starClass = (rating, position) => {
-  if (rating >= position) return "bi-star-fill";
-  if (rating >= position - 0.5) return "bi-star-half";
-  return "bi-star";
-};
 
 export const Skills = () => {
   return (
-    <Section id="skills" title="Skills">
-      <div className="row row-cols-2 row-cols-sm-3 row-cols-xl-5 g-3">
-        {skills.map(({ name, rating }) => (
-          <div className="col" key={name}>
-            {name}
-            <div>
-              {[1, 2, 3, 4, 5].map((position) => (
-                <i key={position} className={`bi ${starClass(rating, position)} me-1`}></i>
+    <Section id="skills" eyebrow="Skills" title="What I work with">
+      <div className="grid gap-6 sm:grid-cols-2">
+        {skillGroups.map(({ icon, title, skills }) => (
+          <div key={title} className="card">
+            <h3 className="flex items-center gap-3 font-semibold">
+              <span className="inline-flex size-9 items-center justify-center rounded-xl bg-sky-50 text-accent dark:bg-sky-950 dark:text-accent-light">
+                <i className={`bi ${icon}`}></i>
+              </span>
+              {title}
+            </h3>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <li key={skill} className="chip">{skill}</li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

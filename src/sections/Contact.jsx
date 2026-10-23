@@ -1,21 +1,12 @@
 import { useState } from "react";
 import { Section } from "../components/Section";
 import { FORMSPREE_ENDPOINT } from "../constants/config";
-
-const EMAIL = "arsalanbudhani43@gmail.com";
+import { profile } from "../constants/profile";
 
 const details = [
-  { icon: "bi-person-circle", text: "Muhammad Arsalan Budhani" },
-  { icon: "bi-tag", text: "Full-Stack Developer" },
-  { icon: "bi-envelope-at", text: EMAIL },
-  { icon: "bi-phone", text: "+92-313-3124925" },
-  { icon: "bi-whatsapp", text: "+92-300-4327985" },
-  { icon: "bi-geo-alt", text: "Hyderabad, Sindh, Pakistan" },
-];
-
-const socials = [
-  { icon: "bi-linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/arsalan-budhani-63574b1a0" },
-  { icon: "bi-github", label: "GitHub", href: "https://github.com/arsalanbudhani" },
+  { icon: "bi-envelope", label: "Email", text: profile.email, href: `mailto:${profile.email}` },
+  { icon: "bi-telephone", label: "Phone", text: profile.phone, href: `tel:${profile.phone.replace(/-/g, "")}` },
+  { icon: "bi-geo-alt", label: "Location", text: profile.location },
 ];
 
 export const Contact = () => {
@@ -41,52 +32,67 @@ export const Contact = () => {
   };
 
   return (
-    <Section id="contact" title="Contact">
-      <div className="row g-4">
-        <div className="col-lg-5">
-          {details.map(({ icon, text }) => (
-            <h6 key={icon} className="text-break">
-              <i className={`bi ${icon} text-accent me-1`}></i> {text}
-            </h6>
-          ))}
-          <div className="d-flex flex-wrap gap-2 mt-3">
-            {socials.map(({ icon, label, href }) => (
-              <a key={icon} className="social-link" target="_blank" rel="noreferrer" href={href} aria-label={label}>
-                <i className={`bi ${icon}`}></i>
-              </a>
+    <Section id="contact" eyebrow="Contact" title="Let's work together">
+      <div className="grid gap-12 md:grid-cols-[2fr_3fr]">
+        <div>
+          <p className="text-lg leading-relaxed">
+            Have a role, a project or just a question? Send me a message and I&apos;ll get back to you.
+          </p>
+          <ul className="mt-8 space-y-5">
+            {details.map(({ icon, label, text, href }) => (
+              <li key={label} className="flex items-center gap-4">
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-accent dark:bg-sky-950 dark:text-accent-light">
+                  <i className={`bi ${icon}`}></i>
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">{label}</p>
+                  {href ? (
+                    <a href={href} className="font-medium break-words text-zinc-900 hover:text-accent dark:text-zinc-100 dark:hover:text-accent-light">
+                      {text}
+                    </a>
+                  ) : (
+                    <p className="font-medium text-zinc-900 dark:text-zinc-100">{text}</p>
+                  )}
+                </div>
+              </li>
             ))}
+          </ul>
+        </div>
+
+        <form onSubmit={handleSubmit} className="card space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="block">
+              <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Name</span>
+              <input type="text" name="name" className="input mt-1.5" placeholder="Your name" required />
+            </label>
+            <label className="block">
+              <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Email</span>
+              <input type="email" name="email" className="input mt-1.5" placeholder="you@example.com" required />
+            </label>
           </div>
-        </div>
-        <div className="col-lg-7">
-          <form onSubmit={handleSubmit}>
-            <div className="form-floating mb-2">
-              <input type="text" id="inpName" name="name" className="form-control" placeholder="Enter Your Name" required />
-              <label htmlFor="inpName">Full Name:</label>
-            </div>
-            <div className="form-floating mb-2">
-              <input type="email" id="inpEmail" name="email" className="form-control" placeholder="Enter Your Email" required />
-              <label htmlFor="inpEmail">Email Address:</label>
-            </div>
-            <div className="form-floating mb-2">
-              <input type="text" id="inpSubject" name="subject" className="form-control" placeholder="Subject" />
-              <label htmlFor="inpSubject">Subject:</label>
-            </div>
-            <textarea id="inpMessage" name="message" className="form-control mb-2" rows="3" placeholder="Enter Your Message" required></textarea>
-            <button type="submit" className="btn btn-accent" disabled={status === "sending"}>
-              {status === "sending" ? "Sending..." : "Send"}
-            </button>
-            <div aria-live="polite">
-              {status === "sent" && (
-                <p className="text-success mt-2 mb-0">Thanks! Your message has been sent.</p>
-              )}
-              {status === "error" && (
-                <p className="text-danger mt-2 mb-0">
-                  Sorry, your message couldn't be sent. Please email me directly at {EMAIL}.
-                </p>
-              )}
-            </div>
-          </form>
-        </div>
+          <label className="block">
+            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Subject</span>
+            <input type="text" name="subject" className="input mt-1.5" placeholder="What's this about?" />
+          </label>
+          <label className="block">
+            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Message</span>
+            <textarea name="message" className="input mt-1.5" rows="5" placeholder="Your message" required></textarea>
+          </label>
+          <button type="submit" className="btn-primary w-full sm:w-auto" disabled={status === "sending"}>
+            {status === "sending" ? "Sending..." : "Send message"} <i className="bi bi-send"></i>
+          </button>
+          <div aria-live="polite">
+            {status === "sent" && (
+              <p className="text-sm text-emerald-600 dark:text-emerald-400">Thanks! Your message has been sent.</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-red-600 dark:text-red-400">
+                Sorry, your message couldn&apos;t be sent. Please email me directly at{" "}
+                <a href={`mailto:${profile.email}`} className="text-link">{profile.email}</a>.
+              </p>
+            )}
+          </div>
+        </form>
       </div>
     </Section>
   );

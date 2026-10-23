@@ -2,45 +2,63 @@ import { Section } from "../components/Section";
 
 const jobs = [
   {
-    period: "November-2022 to Present",
-    company: "Basecamp Data Solutions",
-    location: "Hyderabad, Sindh, Pakistan",
-    role: "Junior Front End Developer",
-    responsibilities: "Designing website mockup, wireframing those designs on professional platforms such as Figma, Adobe XD, Mockflow etc. Implementing those designs on frontend side, using core CSS and/or various JS liabraries, on React JS environment.",
+    period: "Nov 2022 – Present",
+    company: "Oxiliry",
+    role: "Software Engineer",
+    highlights: [
+      "Plan and design software architecture and user interfaces.",
+      "Convert UI/UX designs into functional, responsive frontend code aligned with project requirements.",
+      "Improve performance and optimize existing software systems.",
+      "Identify and resolve bugs to keep applications running smoothly.",
+      "Collaborate with cross-functional teams to deliver integrated solutions.",
+      "Run thorough testing and manage deployments for reliable production releases.",
+    ],
   },
   {
-    period: "June-2022 to October-2022",
-    company: "Basecamp Data Solutions",
-    location: "Hyderabad, Sindh, Pakistan",
-    role: "Web/App Development Intern",
-    responsibilities: "Developing programs on ASP.NET platform using C# as backend language, on webforms and developing desktop applications as well. Learning about SQL database and connecting it with the programs to utilize that data.",
+    period: "Jun 2022 – Oct 2022",
+    company: "Oxiliry",
+    role: "App Development Intern",
+    highlights: [
+      "Gained hands-on experience under mentorship and project guidance.",
+      "Explored and worked with new technologies and frameworks.",
+      "Maintained clear communication with team members and supervisors.",
+    ],
   },
   {
-    period: "April-2021 to September-2021",
+    period: "Mar 2021 – Sep 2021",
     company: "Geekistan",
-    location: "Hyderabad, Sindh, Pakistan",
-    role: "Web Designing and Development Intern",
-    responsibilities: "Worked on the basics of HTML/CSS, Javascript, Ajax, PHP and Database Management. Developed a few projects on my own, handling it's backend, frontend and database as well.",
+    role: "Web Development Intern",
+    highlights: [
+      "Supported the web development team with tasks and feature implementations.",
+      "Developed assigned features and functionality within web applications.",
+      "Contributed to team meetings and collaborative sessions.",
+      "Documented code, processes and project information.",
+    ],
   },
 ];
 
 export const Experience = () => {
   return (
-    <Section id="experience" title="Experience">
-      <div className="row g-4">
+    <Section id="experience" eyebrow="Experience" title="Where I've worked">
+      <ol className="relative space-y-12 border-s border-zinc-200 ps-8 dark:border-zinc-800">
         {jobs.map((job) => (
-          <div className="col-md-6" key={job.period}>
-            <div className="timeline-card">
-              <p className="text-accent fw-semibold">{job.period}</p>
-              <h6>{job.company}</h6>
-              <p>{job.location}</p>
-              <h6>{job.role}</h6>
-              <span className="fw-semibold">Key Responsibilities:</span>
-              <p className="mb-0">{job.responsibilities}</p>
-            </div>
-          </div>
+          <li key={job.period} className="relative">
+            <span className="absolute -start-[2.4rem] top-1.5 size-3 rounded-full bg-accent ring-4 ring-white dark:bg-accent-light dark:ring-zinc-950"></span>
+            <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">{job.period}</p>
+            <h3 className="mt-1 text-xl font-semibold">
+              {job.role} <span className="text-accent dark:text-accent-light">· {job.company}</span>
+            </h3>
+            <ul className="mt-4 space-y-2">
+              {job.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-3">
+                  <i className="bi bi-check2 mt-0.5 text-accent dark:text-accent-light"></i>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 };

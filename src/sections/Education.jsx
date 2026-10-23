@@ -2,40 +2,36 @@ import { Section } from "../components/Section";
 
 const schools = [
   {
-    period: "2017 - 2021",
-    degree: "Bachelors in Engineering",
-    field: "Computer Systems Engineering",
+    period: "Class of 2022",
+    degree: "B.E. Computer Systems Engineering",
     institute: "Mehran University of Engineering and Technology, Jamshoro",
-  },
-  {
-    period: "2015 - 2017",
-    degree: "Intermediate",
-    field: "Pre-Engineering",
-    institute: "Government Boys Degree College, Qasimabad",
-  },
-  {
-    period: "2012 - 2014",
-    degree: "Matriculation",
-    field: "Science Group",
-    institute: "Army Public School And College System, Cantt, Hyderabad",
+    project: {
+      title: "IoT-based Health Monitoring System",
+      description:
+        "A real-time patient monitoring system using IoT sensors and cloud technologies to enable continuous health tracking and timely alerts.",
+    },
   },
 ];
 
 export const Education = () => {
   return (
-    <Section id="education" title="Education">
-      <div className="row g-4">
-        {schools.map((school) => (
-          <div className="col-md-6" key={school.period}>
-            <div className="timeline-card">
-              <p className="text-accent fw-semibold">{school.period}</p>
-              <h6>{school.degree}</h6>
-              <p>{school.field}</p>
-              <h6 className="mb-0">{school.institute}</h6>
-            </div>
+    <Section id="education" eyebrow="Education" title="Where I studied">
+      {schools.map((school) => (
+        <div key={school.degree} className="card grid gap-8 md:grid-cols-2">
+          <div>
+            <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">{school.period}</p>
+            <h3 className="mt-1 text-xl font-semibold">{school.degree}</h3>
+            <p className="mt-2">{school.institute}</p>
           </div>
-        ))}
-      </div>
+          <div className="rounded-xl bg-zinc-50 p-5 dark:bg-zinc-800/50">
+            <p className="text-sm font-semibold tracking-wider text-accent uppercase dark:text-accent-light">
+              Final year project
+            </p>
+            <h4 className="mt-2 font-semibold">{school.project.title}</h4>
+            <p className="mt-2 text-sm leading-relaxed">{school.project.description}</p>
+          </div>
+        </div>
+      ))}
     </Section>
   );
 };

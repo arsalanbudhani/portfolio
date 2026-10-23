@@ -1,0 +1,14 @@
+# Normalize text files to LF in the repo and the working copy,
+# regardless of each machine's core.autocrlf setting.
+* text=auto eol=lf
+
+# Binary assets: never touch line endings or diff as text.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
